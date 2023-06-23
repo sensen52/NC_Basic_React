@@ -10,25 +10,28 @@
   </body>
   <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
-  <script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
     const root = document.getElementById("root");
-    const h3tag = React.createElement(
-      "h3",
-      {
-        onMouseEnter: () => console.log("mouseEndter"),
-      },
-      "hello"
+    let count = 0;
+    function countUp() {
+      count = count + 1;
+      render();
+    }
+
+    function render() {
+      ReactDOM.render(<Container />, root);
+    }
+
+    const Container = () => (
+      <div>
+        <h3>점수:{count}</h3>
+        <button onClick={countUp}>Click me</button>
+      </div>
     );
-    const btn = React.createElement(
-      "button",
-      {
-        id: "title",
-        style: { backgroundColor: "yellow", borderColor: "transparent" },
-        onClick: () => console.log("i'm clicked"),
-      },
-      "Click me"
-    );
-    const container = React.createElement("div", null, [h3tag, btn]);
-    ReactDOM.render(container, root);
+    
+    // ReactDOM.render(<Container />, root);
+    render();
   </script>
 </html>
