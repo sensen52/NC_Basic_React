@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <!-- 그냥 일반 자바스크립트 -->
+  <body>
+    <div id="contents">점수:0</div>
+    <button onclick>click me</button>
+  </body>
+
+  <script>
+    let counter = 0;
+    const con = document.getElementById("contents");
+    const btn = document.querySelector("button");
+
+    function handleClick() {
+      counter = counter + 1;
+      con.innerText = `점수:${counter}`;
+    }
+    btn.addEventListener("click", handleClick);
+  </script>
+</html>
