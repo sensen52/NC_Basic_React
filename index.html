@@ -15,16 +15,55 @@
   <script type="text/babel">
     const root = document.getElementById("root");
     function App() {
-      const [counter, setCounter] = React.useState(0); //얕은 복사를 안해주면 인덱스 하나하나를 꺼내서 지정해 줘야함
-      const onClick = () => {
-        // setCounter(counter + 1); //직접형식, 외부에 의해 값이 변화될 수 있다는 단점이 있다.
-        setCounter((current) => current + 1); //함수를 이용한 방식
+      const [amount, setAmount] = React.useState(0); //얕은 복사를 안해주면 인덱스 하나하나를 꺼내서 지정해 줘야함
+      const [flipped, setFlipped] = React.useState(false);
+
+      const onChange = (event) => {
+        setAmount(event.target.value);
       };
+
+      const reset = () => {
+        setAmount(0);
+      };
+
+      const onFlip = () => {
+        reset();
+        setFlipped((current) => !current);
+      };
+
       return (
-        <div>
-          <h3>total:{counter}</h3>
-          <button onClick={onClick}>click</button>
-        </div>
+        <>
+          <h1>super convertor</h1>
+
+          <div>
+            <label htmlFor="amount">amount</label>
+            <input
+              value={flipped ? amount * 60 : amount}
+              id="amount"
+              type="number"
+              placeholder="amount"
+              onChange={onChange}
+              disabled={flipped === true}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="hours">Hours</label>
+
+            <input
+              value={flipped ? amount : Math.round(amount / 60)}
+              id="hours"
+              placeholder="amount"
+              type="number"
+              onChange={onChange}
+              disabled={flipped === false} //!flipped
+            />
+            <div>
+              <button onClick={reset}>reset</button>
+              <button onClick={onFlip}>FLIP</button>
+            </div>
+          </div>
+        </>
       );
     }
 
