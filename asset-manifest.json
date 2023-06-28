@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/NC_Basic_React.git%20/static/js/main.41ea25ba.js",
-    "index.html": "/NC_Basic_React.git%20/index.html",
-    "main.41ea25ba.js.map": "/NC_Basic_React.git%20/static/js/main.41ea25ba.js.map"
+    "main.js": "/NC_Basic_React/static/js/main.41ea25ba.js",
+    "index.html": "/NC_Basic_React/index.html",
+    "main.41ea25ba.js.map": "/NC_Basic_React/static/js/main.41ea25ba.js.map"
   },
   "entrypoints": [
     "static/js/main.41ea25ba.js"
